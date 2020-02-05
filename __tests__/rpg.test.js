@@ -91,19 +91,55 @@ describe('Daughter', () => {
 });
 
 describe('Crackhead', () => {
+
+  let enemy;
+  let player;
+
+  beforeEach(() => {
+    enemy = new CrackHead();
+    player = new Daughter();
+  });
+
   test("should correctly show object of Crackhead", () => {
-    let enemy = new CrackHead();
     expect(enemy.name).toEqual("Crackhead");
     expect(enemy.mana).toEqual(200);
     expect(enemy.HP).toEqual(50);
   });
+
+  test("should decrease mana by 5 and player's HP by 5", () => {
+    enemy.spit(player);
+    expect(enemy.mana).toEqual(195);
+    expect(player.HP).toEqual(45);
+  });
+
 });
 
 describe('CrackQueen', () => {
+
+  let enemy;
+  let player;
+
+  beforeEach(() => {
+    enemy = new CrackQueen();
+    player = new Daughter();
+  });
+
   test("should correctly show object of CrackQueen", () => {
-    let enemy = new CrackQueen();
     expect(enemy.name).toEqual("Queen Cracktifa");
     expect(enemy.mana).toEqual(500);
     expect(enemy.HP).toEqual(100);
   });
+
+  test("should decrease mana by 10 and decrease player's HP by 10", () => {
+    enemy.syringeStab(player);
+    expect(enemy.mana).toEqual(490);
+    expect(player.HP).toEqual(40);
+  })
+
+  test("should decrease mana by 20 and increase HP by 20", () => {
+    enemy.narcan();
+    expect(enemy.mana).toEqual(480);
+    expect(enemy.HP).toEqual(120);
+  })
+
 });

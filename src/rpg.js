@@ -61,6 +61,11 @@ export class CrackHead {
     this.mana = 200;
     this.HP = 50;
   }
+
+  spit(player) {
+    this.mana -= 5;
+    player.HP -= 5;
+  }
 }
 
 export class CrackQueen {
@@ -68,6 +73,16 @@ export class CrackQueen {
     this.name = "Queen Cracktifa";
     this.mana = 500;
     this.HP = 100;
+  }
+
+  syringeStab(player) {
+    this.mana -= 10;
+    player.HP -= 10;
+  }
+
+  narcan() {
+    this.mana -= 20;
+    this.HP += 20;
   }
 }
 
