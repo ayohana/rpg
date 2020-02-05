@@ -154,8 +154,26 @@ export class Space {
   }
 
   moveNorth() {
-    if (this.xCoordinate > 0) {
+    if (this.xCoordinate > 1) {
       this.xCoordinate -= 1;
+    }
+  }
+
+  moveEast() {
+    if (this.yCoordinate < 3) {
+      this.yCoordinate += 1;
+    }
+  }
+
+  moveSouth() {
+    if (this.xCoordinate < 3) {
+      this.xCoordinate += 1;
+    }
+  }
+
+  moveWest() {
+    if (this.yCoordinate > 1) {
+      this.yCoordinate -= 1;
     }
   }
 }
@@ -169,6 +187,12 @@ export class Game {
   assignMove(moveInput) {
     if (moveInput === "North") {
       this.currentSpace.moveNorth();
+    } else if (moveInput === "East") {
+      this.currentSpace.moveEast();
+    } else if (moveInput === "South") {
+      this.currentSpace.moveSouth();
+    } else if (moveInput === "West") {
+      this.currentSpace.moveWest();
     }
   }
 }
