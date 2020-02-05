@@ -5,6 +5,16 @@ export class OfficeWorker {
     this.mana = 100;
     this.HP = 100;
   }
+
+  swingBriefcase(enemy) {
+    this.mana -= 5;
+    enemy.HP -= 5;
+  }
+
+  magicBlast(enemy) {
+    this.mana -= 10;
+    enemy.HP -= 10;
+  }
 }
 
 export class Coworker {
@@ -14,6 +24,16 @@ export class Coworker {
     this.mana = 100;
     this.HP = 80;
   }
+
+  runAway() {
+    this.mana -= 5;
+    this.HP -= 5;
+  }
+
+  tackle(enemy) {
+    this.mana -= 20;
+    enemy.HP -= 10;
+  }
 }
 
 export class Daughter {
@@ -22,6 +42,16 @@ export class Daughter {
     this.IQ = 110;
     this.mana = 150;
     this.HP = 50;
+  }
+
+  pepperSpray(enemy) {
+    this.mana -= 20;
+    enemy.HP -= 100;
+  }
+
+  punch(enemy) {
+    this.mana -= 20;
+    enemy.HP -= 50;
   }
 }
 
