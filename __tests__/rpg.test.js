@@ -20,7 +20,6 @@ describe ('Player', () => {
 
 });
 
-
 describe('OfficeWorker', () => {
 
   let player;

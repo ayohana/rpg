@@ -125,4 +125,52 @@ export class CrackQueen {
   }
 }
 
+export class Board {
+  constructor() {
+    this.space1 = new Space(1, 1);
+    this.space2 = new Space(1, 2);
+    this.space3 = new Space(1, 3);
+    this.space4 = new Space(2, 1);
+    this.space5 = new Space(2, 2);
+    this.space6 = new Space(2, 3);
+    this.space7 = new Space(3, 1);
+    this.space8 = new Space(3, 2);
+    this.space9 = new Space(3, 3);
+  }
+
+  findCurrentSpace(x, y) {
+    for (let i = 1; i <= 9; i++){
+      if (this[`space${i}`].xCoordinate === x && this[`space${i}`].yCoordinate === y) {
+        return this[`space${i}`];
+      }
+    }
+  }
+}
+
+export class Space {
+  constructor(xCoordinate, yCoordinate) {
+    this.xCoordinate = xCoordinate;
+    this.yCoordinate = yCoordinate;
+  }
+
+  moveNorth() {
+    if (this.xCoordinate > 0) {
+      this.xCoordinate -= 1;
+    }
+  }
+}
+
+export class Game {
+  constructor() {
+    this.board = new Board();
+    this.currentSpace = this.board.space5;
+  }
+
+  assignMove(moveInput) {
+    if (moveInput === "North") {
+      this.currentSpace.moveNorth();
+    }
+  }
+}
+
 // export const { name, IQ, mana, HP } = OfficeWorker;
