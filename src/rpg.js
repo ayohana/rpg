@@ -1,7 +1,3 @@
-export function thingFunction(){
-  return "I do a thing coming from thing.js";
-}
-
 export class OfficeWorker {
   constructor() {
     this.name = "Anon";
@@ -29,4 +25,20 @@ export class Daughter {
   }
 }
 
-// export const { name, IQ, mana, HP } = officeWorker;
+export class CrackHead {
+  constructor() {
+    this.name = "Crackhead";
+    this.mana = 200;
+    this.HP = 50;
+  }
+}
+
+export class CrackQueen {
+  constructor() {
+    this.name = "Queen Cracktifa";
+    this.mana = 500;
+    this.HP = 100;
+  }
+}
+
+// export const { name, IQ, mana, HP } = OfficeWorker;
