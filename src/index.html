@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RPG</title>
+    <title>Invisible RPG</title>
   </head>
   <body>
-    <h1>RPG</h1>
-    <p>Open your console to play this game!</p>
+    <div class="jumbotron">
+      <h1>RPG</h1>
+      <hr>
+      <h4>Seattleites VS Seattle Sewage Enemies</h4>
+    </div>
+
+    <div class="container">
+      <h3>Choose a character:</h3>
+      <form id="charSelection">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="charSelect" value="OfficeWorker">
+          <label class="form-check-label" for="char1">Anon, the Office Worker</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="charSelect" value="Coworker">
+            <label class="form-check-label" for="char2">Jeff, the Coworker</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="charSelect" value="Daughter">
+            <label class="form-check-label" for="char3">Ellie, the Daughter</label>
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg" id="startGame">Start Game!</button>
+      </form>
+    </div>
+
   </body>
 </html>

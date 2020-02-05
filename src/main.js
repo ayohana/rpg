@@ -1,9 +1,15 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-// import $ from 'jquery';
-import { OfficeWorker, Coworker, Daughter } from './rpg'
+import $ from 'jquery';
+import { Player } from '../src/rpg';
 
-var testCharacter = new OfficeWorker();
-console.log(testCharacter);
-console.log(testCharacter.name);
+$(document).ready(function(){
+  $("#startGame").click(function(event){
+    event.preventDefault();
+    let userSelect = $("input:radio[name=charSelect]:checked").val();
+    let player = new Player();
+    console.log(player.assignCharacter(userSelect));
+
+  });
+})

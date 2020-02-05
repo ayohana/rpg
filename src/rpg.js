@@ -1,7 +1,17 @@
 export class Player {
-  constructor(char) {
-    this.char = new char();
+  constructor() {
+    this.char;
     this.level = 1;
+  }
+
+  assignCharacter(userInput) {
+    if (userInput === "OfficeWorker") {
+      return this.char = new OfficeWorker();
+    } else if (userInput === "Coworker") {
+      return this.char = new Coworker();
+    } else {
+      return this.char = new Daughter();
+    }
   }
 
   take(item) {
@@ -25,7 +35,6 @@ export class Player {
       this.level = 4;
     }
   }
-
 }
 
 export class OfficeWorker {

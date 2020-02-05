@@ -16,7 +16,7 @@ describe ('Player', () => {
   test("should increase IQ by 5 when taking a book item", () => {
     testPlayer.take("book");
     expect(testPlayer.char.IQ).toEqual(134);
-  })
+  });
 
 });
 
@@ -156,11 +156,11 @@ describe('CrackQueen', () => {
     enemy.syringeStab(player);
     expect(enemy.mana).toEqual(490);
     expect(player.HP).toEqual(40);
-  })
+  });
 
   test("should decrease mana by 20 and increase HP by 20", () => {
     enemy.narcan();
     expect(enemy.mana).toEqual(480);
     expect(enemy.HP).toEqual(120);
-  })
+  });
 });
