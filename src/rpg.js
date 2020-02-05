@@ -2,7 +2,7 @@ export function thingFunction(){
   return "I do a thing coming from thing.js";
 }
 
-export class officeWorker {
+export class OfficeWorker {
   constructor() {
     this.name = "Anon";
     this.IQ = 129;
@@ -11,7 +11,7 @@ export class officeWorker {
   }
 }
 
-export class coworker {
+export class Coworker {
   constructor() {
     this.name = "Jeff";
     this.IQ = 115;
@@ -20,7 +20,7 @@ export class coworker {
   }
 }
 
-export class daughter {
+export class Daughter {
   constructor() {
     this.name = "Ellie";
     this.IQ = 110;
