@@ -1,3 +1,33 @@
+export class Player {
+  constructor(char) {
+    this.char = new char();
+    this.level = 1;
+  }
+
+  take(item) {
+    if (item === "The God Delusion") {
+      this.char.IQ += 1;
+    } else if (item === "Gone With The Wind") {
+      this.char.IQ += 3;
+    } else if (item === "Arabian Nights") {
+      this.char.IQ += 10;
+    } else if (item === "book") {
+      this.char.IQ += 5;
+    }
+  }
+
+  levelUp() {
+    if (this.char.IQ >= 133) {
+      this.level = 2;
+    } else if (this.char.IQ >= 150) {
+      this.level = 3;
+    } else if (this.char.IQ >= 160) {
+      this.level = 4;
+    }
+  }
+
+}
+
 export class OfficeWorker {
   constructor() {
     this.name = "Anon";

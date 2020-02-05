@@ -1,6 +1,28 @@
-import { OfficeWorker, Coworker, Daughter, CrackHead, CrackQueen } from '../src/rpg';
+import { OfficeWorker, Coworker, Daughter, CrackHead, CrackQueen, Player } from '../src/rpg';
+
+describe ('Player', () => {
+
+  let testPlayer;
+
+  beforeEach(() => {
+    testPlayer = new Player(OfficeWorker);
+  });
+
+  test("should correctly show object of Player with specified character and level", () => {
+    expect(testPlayer.char.name).toEqual("Anon");
+    expect(testPlayer.level).toEqual(1);
+  });
+
+  test("should increase IQ by 5 when taking a book item", () => {
+    testPlayer.take("book");
+    expect(testPlayer.char.IQ).toEqual(134);
+  })
+
+});
+
 
 describe('OfficeWorker', () => {
+
   let player;
   let enemy;
 
@@ -31,6 +53,7 @@ describe('OfficeWorker', () => {
 
 
 describe('Coworker', () => {
+
   let player;
   let enemy;
 
@@ -60,6 +83,7 @@ describe('Coworker', () => {
 });
 
 describe('Daughter', () => {
+
   let player;
   let enemy;
 
@@ -87,7 +111,6 @@ describe('Daughter', () => {
     expect(player.mana).toEqual(130);
     expect(enemy.HP).toEqual(0);
   })
-
 });
 
 describe('Crackhead', () => {
@@ -111,7 +134,6 @@ describe('Crackhead', () => {
     expect(enemy.mana).toEqual(195);
     expect(player.HP).toEqual(45);
   });
-
 });
 
 describe('CrackQueen', () => {
@@ -141,5 +163,4 @@ describe('CrackQueen', () => {
     expect(enemy.mana).toEqual(480);
     expect(enemy.HP).toEqual(120);
   })
-
 });
