@@ -1,3 +1,4 @@
+// Game Class =================
 export class Game {
   constructor() {
     this.board = new Board();
@@ -27,6 +28,7 @@ export class Game {
   }
 }
 
+// Battle Class =================
 export class Battle {
   constructor(player, enemy) {
     this.player = player;
@@ -51,10 +53,19 @@ export class Battle {
       this.player.char.swingBriefcase(this.enemy);
     } else if (skillSelect === "skillMagicBlast") {
       this.player.char.magicBlast(this.enemy);
+    } else if (skillSelect === "skillRunAway") {
+      this.player.char.runAway(this.enemy);
+    } else if (skillSelect === "skillTackle") {
+      this.player.char.tackle(this.enemy);
+    } else if (skillSelect === "skillPepperSpray") {
+      this.player.char.pepperSpray(this.enemy);
+    } else if (skillSelect === "skillPunch") {
+      this.player.char.punch(this.enemy);
     }
   }
 }
 
+// Board Class =================
 export class Board {
   constructor() {
     this.space1 = new Space(1, 1);
@@ -77,6 +88,7 @@ export class Board {
   }
 }
 
+// Space Class =================
 export class Space {
   constructor(xCoordinate, yCoordinate) {
     this.xCoordinate = xCoordinate;
@@ -108,6 +120,7 @@ export class Space {
   }
 }
 
+// Player Class =================
 export class Player {
   constructor() {
     this.char;
@@ -148,6 +161,7 @@ export class Player {
   }
 }
 
+// OfficeWorker Class =================
 export class OfficeWorker {
   constructor() {
     this.name = "Anon";
@@ -167,6 +181,7 @@ export class OfficeWorker {
   }
 }
 
+// Coworker Class =================
 export class Coworker {
   constructor() {
     this.name = "Jeff";
@@ -186,6 +201,7 @@ export class Coworker {
   }
 }
 
+// Daughter Class =================
 export class Daughter {
   constructor() {
     this.name = "Ellie";
@@ -197,7 +213,7 @@ export class Daughter {
   pepperSpray(enemy) {
     this.mana -= 20;
     enemy.HP -= 100;
-  }
+  } 
 
   punch(enemy) {
     this.mana -= 20;
@@ -205,6 +221,7 @@ export class Daughter {
   }
 }
 
+// CrackHead Class =================
 export class CrackHead {
   constructor() {
     this.name = "Crackhead";
@@ -219,6 +236,7 @@ export class CrackHead {
   }
 }
 
+// CrackQueen Class =================
 export class CrackQueen {
   constructor() {
     this.name = "Queen Cracktifa";

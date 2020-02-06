@@ -33,13 +33,6 @@
 
     <!-- Battle Mode -->
     <div class="container" id="battleMode">
-      <!--img-->
-      <!--Enemy HP-->
-      <!--Attacks-->
-      <!--Player HP-->
-      <!--Player Mana-->
-      <!--Player Skill choices-->
-      <!--Attack Button-->
       <h3>Battle Mode</h3>
       <h4><span id="enemyAttack"></span></h4>
       <div id="crackheadImage"></div>
@@ -53,14 +46,37 @@
         <h3>Player Mana: <span id="playerMana"></span></h3>
       </div>
       <form id="skillSelect">
-        <div class="form-check form-inline">
-          <input class="form-check-input" type="radio" name="skillSelect" value="skillSwingBriefcase" required>
-          <label class="form-check-label" for="skillSwingBriefcase">Swing Briefcase</label>
+        <div id="officeWorkerSkills">
+          <div class="form-check form-inline">
+            <input class="form-check-input" type="radio" name="skillSelect" value="skillSwingBriefcase" required>
+            <label class="form-check-label" for="skillSwingBriefcase">Swing Briefcase</label>
+          </div>
+          <div class="form-check form-inline">
+            <input class="form-check-input" type="radio" name="skillSelect" value="skillMagicBlast">
+            <label class="form-check-label" for="skillMagicBlast">Magic Blast</label>
+          </div>
         </div>
-        <div class="form-check form-inline">
-          <input class="form-check-input" type="radio" name="skillSelect" value="skillMagicBlast">
-          <label class="form-check-label" for="skillMagicBlast">Magic Blast</label>
+        <div id="coworkerSkills">
+          <div class="form-check form-inline">
+              <input class="form-check-input" type="radio" name="skillSelect" value="skillRunAway" required>
+              <label class="form-check-label" for="skillRunAway">Run Away</label>
+            </div>
+            <div class="form-check form-inline">
+              <input class="form-check-input" type="radio" name="skillSelect" value="skillTackle">
+              <label class="form-check-label" for="skillTackle">Tackle</label>
+            </div>
         </div>
+        <div id="daughterSkills">
+          <div class="form-check form-inline">
+              <input class="form-check-input" type="radio" name="skillSelect" value="skillPepperSpray" required>
+              <label class="form-check-label" for="skillPepperSpray">Pepper Spray</label>
+            </div>
+            <div class="form-check form-inline">
+              <input class="form-check-input" type="radio" name="skillSelect" value="skillPunch">
+              <label class="form-check-label" for="skillPunch">Punch</label>
+            </div>
+        </div>
+
         <br>
         <button type="button" class="btn btn-primary btn-lg" id="attackButton">Attack!</button>
       </form>
@@ -84,15 +100,8 @@
         </ul>
       </div>
 
-      <div id="space3-2">
-        <ul>
-          <!--401 5th Ave-->
-          <li>You arrive at the <b>Chinook Building</b>. You encounter a Chinook historian.</li>
-          <li>"Klahowa!" he says to you before handing you a book on Chinook history. You gain <b>3 IQ points</b>.</li>
-        </ul>
-      </div>
-
       <div id="space1-2">
+        <h4>Seattle Public Library</h4>
         <ul>
             <!--1000 4th Ave-->
             <li>You find yourself in the Seattle Public Library. You and your massive MENSA brain couldnt help but waltz in.</li>
@@ -103,6 +112,7 @@
       </div>
 
       <div id="space2-1">
+        <h4>Pier 55</h4>
         <ul>
           <!--800 5th Ave-->
           <li>You enter Pop Cap games. The guard tells you to screw off. You gain <b>0 IQ points</b>, but you steal a prototype of Plants vs. Zombies 3, which is kinda cool I guess, idk if people still play those games it's not 2009 anymore.</li>
@@ -110,10 +120,20 @@
       </div>
 
       <div id="space2-3">
+        <h4>Smith Tower</h4>
         <ul>
           <!--506 2nd Ave-->
           <li>You find yourself at the Smith Tower. You encounter a homeless man who asks if you have food to spare.</li>
           <li>You toss him an apple, and in return he tells you about his grandparents who worked on the contruction of Smith Tower and then hands you a book about United States architecture before 1950. You gain <b>2 IQ points</b>.</li>
+        </ul>
+      </div>
+
+      <div id="space3-2">
+        <h4>Chinook Building</h4>
+        <ul>
+          <!--401 5th Ave-->
+          <li>You arrive at the <b>Chinook Building</b>. You encounter a Chinook historian.</li>
+          <li>"Klahowa!" he says to you before handing you a book on Chinook history. You gain <b>3 IQ points</b>.</li>
         </ul>
       </div>
 

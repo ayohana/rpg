@@ -48,12 +48,28 @@ function checkBattleEnemy(game) {
     $("#gameStoryline").hide();
     $("#battleMode").show();
     showStats(game);
-    $("#enemyAttack").text(`A wild Crackhead appears! It's an ambush!`);
+    $("#enemyAttack").text(`A wild Crackhead appears!`);
     return true; // time for battle
   } else {
     $("#battleMode").hide();
     $("#gameStoryline").show();
     return false;
+  }
+}
+
+function showCharSkills(char) {
+  if (char.name === "Anon") {
+    $("#officeWorkerSkills").show();
+    $("#coworkerSkills").hide();
+    $("#daughterSkills").hide();
+  } else if (char.name === "Jeff") {
+    $("#officeWorkerSkills").hide();
+    $("#coworkerSkills").show();
+    $("#daughterSkills").hide();
+  } else {
+    $("#officeWorkerSkills").hide();
+    $("#coworkerSkills").hide();
+    $("#daughterSkills").show();
   }
 }
 
@@ -67,13 +83,17 @@ function checkTurnEnterBattle(game, battle, skillSelect) {
   battle.enterBattle(skillSelect);
   $("#enemyAttack").text(`Crackhead just attacked you back! What do you do?`);
   showStats(game);
-  if (game.enemy.HP === 0) {
+  if (game.enemy.HP <= 0) {
     $("#enemyAttack").text(`You defeated Crackhead! Time to move on!`);
     $("form#skillSelect").hide();
     $("#crackheadImage").hide();
     $("#gameStoryline").show();
     showCorrectStory(game);
   }
+}
+
+function showLocation() {
+  $("#locationInfo").show();
 }
 
 $(document).ready(function(){
@@ -83,9 +103,10 @@ $(document).ready(function(){
 
   $("button#startGame").click(function(event){
     event.preventDefault();
+    showLocation();
     let userSelect = $("input:radio[name=charSelect]:checked").val();
     let user = game.player;
-    console.log(user.assignCharacter(userSelect));
+    user.assignCharacter(userSelect);
     $("#charSelection").hide();
     $("#introStory").show();
     $("#chooseMove").show();
@@ -94,19 +115,22 @@ $(document).ready(function(){
 
   $("button#move").click(function(event){
     event.preventDefault();
+    showLocation();
     let moveSelect = $("input:radio[name=moveSelect]:checked").val();
     game.assignMove(moveSelect);
     console.log(game.currentSpace);
     showCorrectStory(game);
     if (checkBattleEnemy(game)) {
       battle = new Battle(game.player, game.enemy);
+      showCharSkills(game.player.char);
     }
   });
 
   $("button#attackButton").click(function(event){
     event.preventDefault();
+    showLocation();
     let skillSelect = $("input:radio[name=skillSelect]:checked").val();
     checkTurnEnterBattle(game, battle, skillSelect);
   });
 
-})
+});

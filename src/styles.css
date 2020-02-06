@@ -1,16 +1,12 @@
-#introStory, #chooseMove, #space1-2, #space2-1, #space2-3,
-#space3-2 {
+#introStory, #battleMode, #locationInfo, #chooseMove, 
+#space1-2, #space2-1, #space2-3, #space3-2 {
   display: none;
 } 
-
-#battleMode {
-  display: none;
-}
 
 #crackheadImage {
   background-image: url("../src/img/crackhead.gif");
   background-size: 80%;
+  background-repeat: no-repeat;
   width: 500px;
   height: 300px;
-  background-repeat: no-repeat;
 }
