@@ -1,3 +1,77 @@
+export class Game {
+  constructor() {
+    this.board = new Board();
+    this.currentSpace = this.board.space5;
+    this.enemy1 = new CrackHead();
+    this.enemy1Space = this.board.space1;
+  }
+
+  assignMove(moveInput) {
+    if (moveInput === "North") {
+      this.currentSpace.moveNorth();
+    } else if (moveInput === "East") {
+      this.currentSpace.moveEast();
+    } else if (moveInput === "South") {
+      this.currentSpace.moveSouth();
+    } else if (moveInput === "West") {
+      this.currentSpace.moveWest();
+    }
+  }
+}
+
+export class Board {
+  constructor() {
+    this.space1 = new Space(1, 1);
+    this.space2 = new Space(1, 2);
+    this.space3 = new Space(1, 3);
+    this.space4 = new Space(2, 1);
+    this.space5 = new Space(2, 2);
+    this.space6 = new Space(2, 3);
+    this.space7 = new Space(3, 1);
+    this.space8 = new Space(3, 2);
+    this.space9 = new Space(3, 3);
+  }
+
+  findCurrentSpace(x, y) {
+    for (let i = 1; i <= 9; i++){
+      if (this[`space${i}`].xCoordinate === x && this[`space${i}`].yCoordinate === y) {
+        return this[`space${i}`];
+      }
+    }
+  }
+}
+
+export class Space {
+  constructor(xCoordinate, yCoordinate) {
+    this.xCoordinate = xCoordinate;
+    this.yCoordinate = yCoordinate;
+  }
+
+  moveNorth() {
+    if (this.xCoordinate > 1) {
+      this.xCoordinate -= 1;
+    }
+  }
+
+  moveEast() {
+    if (this.yCoordinate < 3) {
+      this.yCoordinate += 1;
+    }
+  }
+
+  moveSouth() {
+    if (this.xCoordinate < 3) {
+      this.xCoordinate += 1;
+    }
+  }
+
+  moveWest() {
+    if (this.yCoordinate > 1) {
+      this.yCoordinate -= 1;
+    }
+  }
+}
+
 export class Player {
   constructor() {
     this.char;
@@ -125,76 +199,6 @@ export class CrackQueen {
   }
 }
 
-export class Board {
-  constructor() {
-    this.space1 = new Space(1, 1);
-    this.space2 = new Space(1, 2);
-    this.space3 = new Space(1, 3);
-    this.space4 = new Space(2, 1);
-    this.space5 = new Space(2, 2);
-    this.space6 = new Space(2, 3);
-    this.space7 = new Space(3, 1);
-    this.space8 = new Space(3, 2);
-    this.space9 = new Space(3, 3);
-  }
 
-  findCurrentSpace(x, y) {
-    for (let i = 1; i <= 9; i++){
-      if (this[`space${i}`].xCoordinate === x && this[`space${i}`].yCoordinate === y) {
-        return this[`space${i}`];
-      }
-    }
-  }
-}
-
-export class Space {
-  constructor(xCoordinate, yCoordinate) {
-    this.xCoordinate = xCoordinate;
-    this.yCoordinate = yCoordinate;
-  }
-
-  moveNorth() {
-    if (this.xCoordinate > 1) {
-      this.xCoordinate -= 1;
-    }
-  }
-
-  moveEast() {
-    if (this.yCoordinate < 3) {
-      this.yCoordinate += 1;
-    }
-  }
-
-  moveSouth() {
-    if (this.xCoordinate < 3) {
-      this.xCoordinate += 1;
-    }
-  }
-
-  moveWest() {
-    if (this.yCoordinate > 1) {
-      this.yCoordinate -= 1;
-    }
-  }
-}
-
-export class Game {
-  constructor() {
-    this.board = new Board();
-    this.currentSpace = this.board.space5;
-  }
-
-  assignMove(moveInput) {
-    if (moveInput === "North") {
-      this.currentSpace.moveNorth();
-    } else if (moveInput === "East") {
-      this.currentSpace.moveEast();
-    } else if (moveInput === "South") {
-      this.currentSpace.moveSouth();
-    } else if (moveInput === "West") {
-      this.currentSpace.moveWest();
-    }
-  }
-}
 
 // export const { name, IQ, mana, HP } = OfficeWorker;
