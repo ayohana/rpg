@@ -4,6 +4,15 @@ import './styles.css';
 import $ from 'jquery';
 import { Player, Game } from '../src/rpg';
 
+// To-Do List for tomorrow:
+// Books
+// Stories for the rest of the spaces
+// Place enemies
+// Battle enemies
+// LevelUp + IQ points
+// Take books/other items
+// Further exploration: Easter Egg, soundtrack, sound effects
+
 function showCorrectStory(game) {
   if (game.currentSpace.xCoordinate === 1 && game.currentSpace.yCoordinate === 2) {
     $("#space1-2").show();
