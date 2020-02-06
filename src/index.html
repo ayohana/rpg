@@ -15,7 +15,7 @@
       <h3>Choose a character:</h3>
       <form>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="charSelect" value="OfficeWorker">
+          <input class="form-check-input" type="radio" name="charSelect" value="OfficeWorker" required>
           <label class="form-check-label" for="char1">Anon, the Office Worker</label>
         </div>
         <div class="form-check">
@@ -41,18 +41,20 @@
       <!--Player Skill choices-->
       <!--Attack Button-->
       <h3>Battle Mode</h3>
-
+      <h4><span id="enemyAttack"></span></h4>
       <div id="crackheadImage"></div>
       <div id="enemyStats">
-        <h3>HP: <span id="enemyHP"></span></h3>
+        <h3>Crackhead HP: <span id="enemyHP"></span></h3>
       </div>
+      <br>
+      <hr>
       <div id="playerStats">
-        <h3>HP: <span id="playerHP"></span></h3>
-        <h3>Mana: <span id="playerMana"></span></h3>
+        <h3>Player HP: <span id="playerHP"></span></h3>
+        <h3>Player Mana: <span id="playerMana"></span></h3>
       </div>
-      <form>
+      <form id="skillSelect">
         <div class="form-check form-inline">
-          <input class="form-check-input" type="radio" name="skillSelect" value="skillSwingBriefcase">
+          <input class="form-check-input" type="radio" name="skillSelect" value="skillSwingBriefcase" required>
           <label class="form-check-label" for="skillSwingBriefcase">Swing Briefcase</label>
         </div>
         <div class="form-check form-inline">
@@ -119,7 +121,7 @@
         <p>Choose your next move:</p>
         <form>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="moveSelect" value="North">
+            <input class="form-check-input" type="radio" name="moveSelect" value="North" required>
             <label class="form-check-label" for="North">Move North</label>
           </div>
           <div class="form-check">

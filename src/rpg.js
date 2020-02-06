@@ -3,8 +3,8 @@ export class Game {
     this.board = new Board();
     this.player = new Player();
     this.currentSpace = this.board.space5;
-    this.enemy1 = new CrackHead();
-    this.enemy1Space = this.board.space1;
+    this.enemy = new CrackHead();
+    this.enemySpace = this.board.space1;
   }
 
   assignMove(moveInput) {
@@ -20,7 +20,8 @@ export class Game {
   }
 
   checkEnemy() {
-    if (this.currentSpace.xCoordinate === this.enemy1Space.xCoordinate && this.currentSpace.yCoordinate === this.enemy1Space.yCoordinate ){
+    if (this.currentSpace.xCoordinate === this.enemySpace.xCoordinate && 
+      this.currentSpace.yCoordinate === this.enemySpace.yCoordinate ){
       return true;
     }
   }
@@ -36,16 +37,21 @@ export class Battle {
     if (this.enemy.turn === 1) {
       this.enemy.turn = 0;
       this.player.turn = 1;
-      return this.enemy;
+      return true; // enemy's turn
     } else if (this.enemy.turn === 0) {
       this.enemy.turn = 1;
       this.player.turn = 0;
-      return this.player;
+      return false; // player's turn
     }
   }
 
-  enterBattle() {
-    
+  enterBattle(skillSelect) {
+    this.enemy.spit(this.player);
+    if (skillSelect === "skillSwingBriefcase") {
+      this.player.char.swingBriefcase(this.enemy);
+    } else if (skillSelect === "skillMagicBlast") {
+      this.player.char.magicBlast(this.enemy);
+    }
   }
 }
 
@@ -209,7 +215,7 @@ export class CrackHead {
 
   spit(player) {
     this.mana -= 5;
-    player.HP -= 5;
+    player.char.HP -= 5;
   }
 }
 
@@ -222,7 +228,7 @@ export class CrackQueen {
 
   syringeStab(player) {
     this.mana -= 10;
-    player.HP -= 10;
+    player.char.HP -= 10;
   }
 
   narcan() {

@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { Game } from '../src/rpg';
+import { Game, Battle } from '../src/rpg';
 
 // To-Do List for tomorrow:
 // Books
@@ -14,6 +14,7 @@ import { Game } from '../src/rpg';
 // Further exploration: Easter Egg, soundtrack, sound effects
 
 function showCorrectStory(game) {
+  $("#introStory").hide();
   if (game.currentSpace.xCoordinate === 1 && game.currentSpace.yCoordinate === 2) {
     $("#space1-2").show();
     $("#space2-1").hide();
@@ -44,25 +45,41 @@ function showCorrectStory(game) {
 
 function checkBattleEnemy(game) {
   if (game.checkEnemy()) {
+    $("#gameStoryline").hide();
     $("#battleMode").show();
     showStats(game);
-    $("#gameStoryline").hide();
-
+    $("#enemyAttack").text(`A wild Crackhead appears! It's an ambush!`);
+    return true; // time for battle
   } else {
     $("#battleMode").hide();
     $("#gameStoryline").show();
+    return false;
   }
 }
 
 function showStats(game) {
-  $("#enemyHP").text(game.enemy1.HP);
+  $("#enemyHP").text(game.enemy.HP);
   $("#playerHP").text(game.player.char.HP);
   $("#playerMana").text(game.player.char.mana);
+}
+
+function checkTurnEnterBattle(game, battle, skillSelect) {
+  battle.enterBattle(skillSelect);
+  $("#enemyAttack").text(`Crackhead just attacked you back! What do you do?`);
+  showStats(game);
+  if (game.enemy.HP === 0) {
+    $("#enemyAttack").text(`You defeated Crackhead! Time to move on!`);
+    $("form#skillSelect").hide();
+    $("#crackheadImage").hide();
+    $("#gameStoryline").show();
+    showCorrectStory(game);
+  }
 }
 
 $(document).ready(function(){
   
   let game = new Game();
+  let battle;
 
   $("button#startGame").click(function(event){
     event.preventDefault();
@@ -81,7 +98,15 @@ $(document).ready(function(){
     game.assignMove(moveSelect);
     console.log(game.currentSpace);
     showCorrectStory(game);
-    checkBattleEnemy(game);
+    if (checkBattleEnemy(game)) {
+      battle = new Battle(game.player, game.enemy);
+    }
+  });
+
+  $("button#attackButton").click(function(event){
+    event.preventDefault();
+    let skillSelect = $("input:radio[name=skillSelect]:checked").val();
+    checkTurnEnterBattle(game, battle, skillSelect);
   });
 
 })
