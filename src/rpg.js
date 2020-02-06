@@ -1,6 +1,7 @@
 export class Game {
   constructor() {
     this.board = new Board();
+    this.player = new Player();
     this.currentSpace = this.board.space5;
     this.enemy1 = new CrackHead();
     this.enemy1Space = this.board.space1;
@@ -41,6 +42,10 @@ export class Battle {
       this.player.turn = 0;
       return this.player;
     }
+  }
+
+  enterBattle() {
+    
   }
 }
 

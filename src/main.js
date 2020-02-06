@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { Player, Game } from '../src/rpg';
+import { Game } from '../src/rpg';
 
 // To-Do List for tomorrow:
 // Books
@@ -45,11 +45,19 @@ function showCorrectStory(game) {
 function checkBattleEnemy(game) {
   if (game.checkEnemy()) {
     $("#battleMode").show();
+    showStats(game);
     $("#gameStoryline").hide();
+
   } else {
     $("#battleMode").hide();
     $("#gameStoryline").show();
   }
+}
+
+function showStats(game) {
+  $("#enemyHP").text(game.enemy1.HP);
+  $("#playerHP").text(game.player.char.HP);
+  $("#playerMana").text(game.player.char.mana);
 }
 
 $(document).ready(function(){
@@ -59,12 +67,12 @@ $(document).ready(function(){
   $("button#startGame").click(function(event){
     event.preventDefault();
     let userSelect = $("input:radio[name=charSelect]:checked").val();
-    let player = new Player();
-    console.log(player.assignCharacter(userSelect));
+    let user = game.player;
+    console.log(user.assignCharacter(userSelect));
     $("#charSelection").hide();
     $("#introStory").show();
     $("#chooseMove").show();
-    $("#charName").text(player.char.name);
+    $("#charName").text(user.char.name);
   });
 
   $("button#move").click(function(event){
