@@ -17,6 +17,35 @@ export class Game {
       this.currentSpace.moveWest();
     }
   }
+
+  checkEnemy() {
+    if (this.currentSpace.xCoordinate === this.enemy1Space.xCoordinate && this.currentSpace.yCoordinate === this.enemy1Space.yCoordinate ){
+      this.battleEnemy();
+    }
+  }
+
+  battleEnemy() {
+   return true; // battle function goes here
+  }
+}
+
+export class Battle {
+  constructor(player, enemy) {
+    this.player = player;
+    this.enemy = enemy;
+  }
+
+  checkTurn() {
+    if (this.enemy.turn === 1) {
+      this.enemy.turn = 0;
+      this.player.turn = 1;
+      return this.enemy;
+    } else if (this.enemy.turn === 0) {
+      this.enemy.turn = 1;
+      this.player.turn = 0;
+      return this.player;
+    }
+  }
 }
 
 export class Board {
@@ -76,6 +105,7 @@ export class Player {
   constructor() {
     this.char;
     this.level = 1;
+    this.turn = 0;
   }
 
   assignCharacter(userInput) {
@@ -173,6 +203,7 @@ export class CrackHead {
     this.name = "Crackhead";
     this.mana = 200;
     this.HP = 50;
+    this.turn = 1;
   }
 
   spit(player) {
@@ -198,7 +229,3 @@ export class CrackQueen {
     this.HP += 20;
   }
 }
-
-
-
-// export const { name, IQ, mana, HP } = OfficeWorker;

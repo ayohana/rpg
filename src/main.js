@@ -63,6 +63,7 @@ $(document).ready(function(){
     game.assignMove(moveSelect);
     console.log(game.currentSpace);
     showCorrectStory(game);
+    game.checkEnemy();
   });
 
 })
