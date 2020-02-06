@@ -42,6 +42,16 @@ function showCorrectStory(game) {
   }
 }
 
+function checkBattleEnemy(game) {
+  if (game.checkEnemy()) {
+    $("#battleMode").show();
+    $("#gameStoryline").hide();
+  } else {
+    $("#battleMode").hide();
+    $("#gameStoryline").show();
+  }
+}
+
 $(document).ready(function(){
   
   let game = new Game();
@@ -63,7 +73,7 @@ $(document).ready(function(){
     game.assignMove(moveSelect);
     console.log(game.currentSpace);
     showCorrectStory(game);
-    game.checkEnemy();
+    checkBattleEnemy(game);
   });
 
 })

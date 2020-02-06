@@ -2,3 +2,15 @@
 #space3-2 {
   display: none;
 } 
+
+#battleMode {
+  display: none;
+}
+
+#crackheadImage {
+  background-image: url("../src/img/crackhead.gif");
+  background-size: 80%;
+  width: 500px;
+  height: 300px;
+  background-repeat: no-repeat;
+}

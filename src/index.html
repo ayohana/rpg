@@ -39,17 +39,26 @@
       <!--Player Skill choices-->
       <!--Attack Button-->
       <h3>Battle Mode</h3>
+
+      <div id="crackheadImage"></div>
+      <div id="enemyStats">
+        <h3>HP:<span id="enemyHP"></span></h3>
+      </div>
+      <div id="playerStats">
+        <h3>HP:<span id="HP"></span></h3>
+        <h3>Mana:<span id="mana"></span></h3>
+      </div>
       <form>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="skillSelect" value="skill1">
-          <label class="form-check-label" for="skill1"></label>
+        <div class="form-check form-inline">
+          <input class="form-check-input" type="radio" name="skillSelect" value="skillSwingBriefcase">
+          <label class="form-check-label" for="skillSwingBriefcase">Swing Briefcase</label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="skillSelect" value="skill2">
-          <label class="form-check-label" for="skill2"></label>
+        <div class="form-check form-inline">
+          <input class="form-check-input" type="radio" name="skillSelect" value="skillMagicBlast">
+          <label class="form-check-label" for="skillMagicBlast">Magic Blast</label>
         </div>
         <br>
-        <button type="button" class="btn btn-primary btn-lg" id="startGame">Start Game!</button>
+        <button type="button" class="btn btn-primary btn-lg" id="attackButton">Attack!</button>
       </form>
     </div>
 

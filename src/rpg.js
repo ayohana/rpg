@@ -20,12 +20,8 @@ export class Game {
 
   checkEnemy() {
     if (this.currentSpace.xCoordinate === this.enemy1Space.xCoordinate && this.currentSpace.yCoordinate === this.enemy1Space.yCoordinate ){
-      this.battleEnemy();
+      return true;
     }
-  }
-
-  battleEnemy() {
-   return true; // battle function goes here
   }
 }
 
