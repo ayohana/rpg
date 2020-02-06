@@ -19,6 +19,12 @@ describe ('Player', () => {
     expect(testPlayer.char.IQ).toEqual(134);
   });
 
+  test("should level up to 2 when IQ is at least 133", () => {
+    testPlayer.take("book");
+    testPlayer.levelUp();
+    expect(testPlayer.level).toEqual(2);
+  });
+
 });
 
 describe('OfficeWorker', () => {
