@@ -1,3 +1,4 @@
-#gameStoryline {
+#introStory, #chooseMove, #space3-2,
+#space1-2 {
   display: none;
-}
+} 

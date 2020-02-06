@@ -31,21 +31,23 @@
     </div>
 
     <div class="container" id="gameStoryline">
-      <p>Hello, <em><span id="charName"></span></em>!</p>
-      <ul>
-        <li>You are in the office in the Colombia Center, coding an RPG.</li>
-        <li>Your <b>coworker</b>, a memer and overall weirdo, gets up to show you the dankest meme.</li>
-        <li>On his way up, he hits his leg on the bottom of the table. He loses 15 HP.</li>
-        <li>You get a text from your <b>daughter</b>, saying she is trapped in the bathroom at the McDonald's on 3rd and Pine.</li>
-        <li>You know this place; it is the most ghetto place in Seattle. It makes Tacoma look like LEavenworth. It is nicknamed McStabby's.</li>
-        <li>Determined, you head tell your <b>coworker</b> youre about to get off. He lets out a giggle.</li>
-        <li>As you head out into the bowels of Seattle, your <b>coworker</b> decides to play hooky and join you on your adventure.</li>
-        <br>
-        <br>
-        <li>You are on 701 5th Avenue. 3rd and Pine is to your west. You can go other directions and look for items too. Where will you go?</li>
-      </ul>
+      <div id="introStory">
+        <p>Hello, <em><span id="charName"></span></em>!</p>
+        <ul>
+          <li>You are in the office in the Colombia Center, coding an RPG.</li>
+          <li>Your <b>coworker</b>, a memer and overall weirdo, gets up to show you the dankest meme.</li>
+          <li>On his way up, he hits his leg on the bottom of the table. He loses 15 HP.</li>
+          <li>You get a text from your <b>daughter</b>, saying she is trapped in the bathroom at the McDonald's on 3rd and Pine.</li>
+          <li>You know this place; it is the most ghetto place in Seattle. It makes Tacoma look like LEavenworth. It is nicknamed McStabby's.</li>
+          <li>Determined, you head tell your <b>coworker</b> youre about to get off. He lets out a giggle.</li>
+          <li>As you head out into the bowels of Seattle, your <b>coworker</b> decides to play hooky and join you on your adventure.</li>
+          <br>
+          <br>
+          <li>You are on 701 5th Avenue. 3rd and Pine is to your west. You can go other directions and look for items too. Where will you go?</li>
+        </ul>
+      </div>
 
-      <div id="3-2">
+      <div id="space3-2">
         <ul>
           <!--401 5th Ave-->
           <li>You arrive at the <b>Chinook Building</b>. You encounter a Chinook historian.</li>
@@ -53,7 +55,7 @@
         </ul>
       </div>
 
-      <div id="1-2">
+      <div id="space1-2">
         <ul>
             <!--1000 4th Ave-->
             <li>You find yourself in the Seattle Public Library. You and your massive MENSA brain couldnt help but waltz in.</li>
@@ -63,27 +65,29 @@
         </ul>
       </div>
 
-      <p>Choose your next move:</p>
-      <form>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="moveSelect" value="North">
-          <label class="form-check-label" for="North">Move North</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="moveSelect" value="West">
-          <label class="form-check-label" for="West">Move West</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="moveSelect" value="South">
-          <label class="form-check-label" for="South">Move South</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="moveSelect" value="East">
-          <label class="form-check-label" for="East">Move East</label>
-        </div>
-        <br>
-        <button type="button" class="btn btn-primary btn-lg" id="move">Let's Go!</button>
-      </form>
+      <div id="chooseMove">
+        <p>Choose your next move:</p>
+        <form>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="moveSelect" value="North">
+            <label class="form-check-label" for="North">Move North</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="moveSelect" value="West">
+            <label class="form-check-label" for="West">Move West</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="moveSelect" value="South">
+            <label class="form-check-label" for="South">Move South</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="moveSelect" value="East">
+            <label class="form-check-label" for="East">Move East</label>
+          </div>
+          <br>
+          <button type="button" class="btn btn-primary btn-lg" id="move">Let's Go!</button>
+        </form>
+      </div>
     </div>
 
   </body>

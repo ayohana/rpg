@@ -4,17 +4,31 @@ import './styles.css';
 import $ from 'jquery';
 import { Player, Game } from '../src/rpg';
 
+function showCorrectStory(game) {
+  if (game.currentSpace.xCoordinate === 3 && game.currentSpace.yCoordinate === 2) {
+    $("#space3-2").show();
+    $("#space1-2").hide();
+  } else if (game.currentSpace.xCoordinate === 1 && game.currentSpace.yCoordinate === 2) {
+    $("#space1-2").show();
+    $("#space3-2").hide();
+  } else {
+    $("#space3-2").hide();
+    $("#space1-2").hide();
+  }
+}
+
 $(document).ready(function(){
   
   let game = new Game();
 
-  $("#startGame").click(function(event){
+  $("button#startGame").click(function(event){
     event.preventDefault();
     let userSelect = $("input:radio[name=charSelect]:checked").val();
     let player = new Player();
     console.log(player.assignCharacter(userSelect));
     $("#charSelection").hide();
-    $("#gameStoryline").show();
+    $("#introStory").show();
+    $("#chooseMove").show();
     $("#charName").text(player.char.name);
   });
 
@@ -23,6 +37,7 @@ $(document).ready(function(){
     let moveSelect = $("input:radio[name=moveSelect]:checked").val();
     game.assignMove(moveSelect);
     console.log(game.currentSpace);
+    showCorrectStory(game);
   });
 
 })

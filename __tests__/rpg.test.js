@@ -5,7 +5,8 @@ describe ('Player', () => {
   let testPlayer;
 
   beforeEach(() => {
-    testPlayer = new Player(OfficeWorker);
+    testPlayer = new Player();
+    testPlayer.assignCharacter("OfficeWorker");
   });
 
   test("should correctly show object of Player with specified character and level", () => {
@@ -163,3 +164,4 @@ describe('CrackQueen', () => {
     expect(enemy.HP).toEqual(120);
   });
 });
+
